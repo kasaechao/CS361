@@ -8,15 +8,21 @@ import StarRating from './components/StarRating';
 function App() {
 
   const steps = {
-    step1: 'Adjust slider to select the date range. The range will refine your recommended movie between the chosen range.',
-    step2: 'Select a genre of movie by slecting from the following genres',
-    step3: 'Select the average rating of the movie to be recommeneded.',
+    step1: 'Hint: Adjust slider to select the date range. The range will refine your recommended movie between the chosen range.',
+    step2: 'Hint: Select a genre of movie by slecting from the following genres',
+    step3: 'Hint: Select the average rating of the movie to be recommeneded.',
+  }
+
+  const results = {
+    yearRange:[],
+    genres: [],
+    rating: 0,
   }
 
   return (
     <div>
       <StepBox text={steps.step1} />
-      <MySlider />
+      <MySlider results={results}/>
       <StepBox text={steps.step2} />
       <GenreSelect />
       <StepBox text={steps.step3} />

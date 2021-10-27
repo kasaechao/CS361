@@ -4,7 +4,9 @@ import 'rc-rate/assets/index.css'
 
 const StarRating = () => {
 
-    const [rateValue, setRatevalue] = useState(0)
+    const [rateValue, setRatevalue] = useState(3.5)
+
+    
 
     const starValue = (e) => {
         setRatevalue(e)
@@ -26,8 +28,8 @@ const StarRating = () => {
     return (
         <div style={boxStyle}>
             <h1>Select The Average Rating</h1>
-            <h3>{rateValue}</h3>
-            <Rate style={starStyle} allowHalf={true} onChange={starValue} />
+            <h3>Rating: {rateValue} / 5</h3>
+            <Rate style={starStyle} allowHalf={true} onChange={starValue} defaultValue={3.5} />
         </div>
     )
 }
