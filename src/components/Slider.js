@@ -34,7 +34,7 @@ const MySlider = (props) => {
 
     return (
         <div style={boxStyle}>
-            <h1>Adjust Sliders to Select The Movie Date Range</h1>
+            <h1>1. Adjust Sliders to Select The Movie Date Range</h1>
             <Range min={2000} max={2021} style={sliderStyle} marks={markings} defaultValue={[2000, 2010]} onChange={updateResults}/>
         </div>
     )
