@@ -1,14 +1,36 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
+
+const Trailer = (props) => {
+  
+  return (
+    <div>
+      <iframe src={props.trailer} frameborder="0"></iframe>
+    </div>
+  )
+}
 
 const Result = () => {
 		
-		const [fakeData, setFakeData] = useState({})
+		const [serviceData, setFakeData] = useState("")
+    const [showTrailer, setShowTrailer] = useState(false)
+    
 		const [fakeWiki, setFakeWiki] = useState({})
 		const [fakeReview, setFakeReview] = useState({})
 
+
+
+// ***************************************************** INTEGRATION PART (B) *****************************************************
+
 		const response = () => {
-			setFakeData({result:'future microservice video extractor to return movie trailer'})
+			// setFakeData({result:'future microservice video extractor to return movie trailer'})
+      axios.post('http://flip1.engr.oregonstate.edu:3690/', {'movie': 'free guy'})
+        .then((res) => {
+          setFakeData(res.data.trailer)
+          setShowTrailer(true)
+        })
 		}
+// ***************************************************** INTEGRATION PART (B) ******************************************************
 
 		const responseWiki = () => {
 			setFakeWiki({result:'future microservice to link wiki info page'})
@@ -17,8 +39,6 @@ const Result = () => {
 		const responseReview = () => {
 			setFakeReview({result:'future service to provide a link movie review'})
 		}
-
-
 
     const stepBoxStyle = {
         fontStyle: 'italic',
@@ -77,11 +97,11 @@ const Result = () => {
         </div>
 					<div style={buttonLayoutStyle}>
 						<button style={buttonStyle} onClick={response}>Trailer (will call video extractor microservice provided by teammate)</button>
-						<pre>{JSON.stringify(fakeData)}</pre>
-						<button style={buttonStyle} onClick={responseWiki}>Reviews</button>
+            {showTrailer  ? <Trailer trailer={serviceData}/> : null}
+						{/* <button style={buttonStyle} onClick={responseWiki}>Reviews</button>
 						<pre>{JSON.stringify(fakeWiki)}</pre>
 						<button style={buttonStyle} onClick={responseReview}>Wiki (Will call text grabber microservice provided by me)</button>
-						<pre>{JSON.stringify(fakeReview)}</pre>
+						<pre>{JSON.stringify(fakeReview)}</pre> */}
 					</div>
         </div>
     )
