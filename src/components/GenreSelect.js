@@ -25,7 +25,7 @@ const GenreSelect = () => {
 
     return (
         <div style={boxStyle}>
-            <h1>Select Genre(s)</h1>
+            <h1>2. Select Genre(s)</h1>
             {/* <pre>{JSON.stringify(selected)}</pre> */}
             <MultiSelect
                 options={options}

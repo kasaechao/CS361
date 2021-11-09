@@ -27,7 +27,7 @@ const StarRating = () => {
 
     return (
         <div style={boxStyle}>
-            <h1>Select The Average Rating</h1>
+            <h1>3. Select The Average Rating</h1>
             <h3>Rating: {rateValue} / 5</h3>
             <Rate style={starStyle} allowHalf={true} onChange={starValue} defaultValue={3.5} />
         </div>
