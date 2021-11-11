@@ -19,9 +19,6 @@ const Result = () => {
 		const [fakeReview, setFakeReview] = useState({})
 
 
-
-// ***************************************************** INTEGRATION PART (B) *****************************************************
-
 		const response = () => {
 			// setFakeData({result:'future microservice video extractor to return movie trailer'})
       axios.post('http://flip1.engr.oregonstate.edu:3690/', {'movie': 'free guy'})
@@ -30,7 +27,6 @@ const Result = () => {
           setShowTrailer(true)
         })
 		}
-// ***************************************************** INTEGRATION PART (B) ******************************************************
 
 		const responseWiki = () => {
 			setFakeWiki({result:'future microservice to link wiki info page'})
