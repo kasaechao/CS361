@@ -10,7 +10,7 @@ const Trailer = (props) => {
   )
 }
 
-const Result = () => {
+const Result = (props) => {
 		
 		const [serviceData, setFakeData] = useState("")
     const [showTrailer, setShowTrailer] = useState(false)
@@ -84,6 +84,7 @@ const Result = () => {
     return (
         <div style={mainBoxStyle}>
 					<div style={stepBoxStyle}>
+            {console.log(props.results)}
 						<div><img style={imageStyle} src="https://yt3.ggpht.com/ytc/AKedOLSkNBClOIZNjJayMdTxRhUh6LYEXjjjCv0tMJ3-mA=s900-c-k-c0x00ffffff-no-rj" alt="" /></div>
 						<div style={{padding:'10px'}}>
 								Description

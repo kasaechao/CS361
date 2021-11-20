@@ -2,15 +2,14 @@ import React, { useState } from 'react'
 import Rate from 'rc-rate'
 import 'rc-rate/assets/index.css'
 
-const StarRating = () => {
+const StarRating = (props) => {
 
     const [rateValue, setRatevalue] = useState(3.5)
 
-    
-
     const starValue = (e) => {
         setRatevalue(e)
-        console.log(e)
+        props.results.rating = e
+        console.log(props)
     } 
 
 

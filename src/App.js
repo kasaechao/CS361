@@ -13,7 +13,7 @@ function App() {
     step3: 'Hint: Select the average rating of the movie to be recommeneded.',
   }
 
-  const results = {
+  let results = {
     yearRange:[],
     genres: [],
     rating: 0,
@@ -24,10 +24,10 @@ function App() {
       <StepBox text={steps.step1} />
       <MySlider results={results}/>
       <StepBox text={steps.step2} />
-      <GenreSelect />
+      <GenreSelect results={results}/>
       <StepBox text={steps.step3} />
-      <StarRating />
-      <Result />
+      <StarRating results={results}/>
+      <Result results={results}/>
     </div>
   );
 }
