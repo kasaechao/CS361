@@ -14,6 +14,7 @@ function App() {
   }
 
   let results = {
+    //will be the format of the req.body
     yearRange:[],
     genres: [],
     rating: 0,

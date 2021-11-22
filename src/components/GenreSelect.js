@@ -6,10 +6,10 @@ const GenreSelect = (props) => {
     const [selected, setSelected] = useState([]);
 
     const options = [
-        {label: "Horror", value: "Horror"},
-        {label: "Comedy", value: "Comedy"},
-        {label: "Romance", value: "Romance"},
-        {label: "Action", value: "Action"},
+        {label: "Horror", value: "Horror", id:"27"},
+        {label: "Comedy", value: "Comedy", id:"35"},
+        {label: "Romance", value: "Romance", id:"10749"},
+        {label: "Action", value: "Action", id:"28"},
     ]    
 
     const boxStyle = {
