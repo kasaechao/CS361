@@ -5,7 +5,7 @@ const Trailer = (props) => {
   
   return (
     <div>
-      <iframe src={props.trailer} frameborder="0"></iframe>
+      <iframe src={props.trailer}></iframe>
     </div>
   )
 }
@@ -13,7 +13,7 @@ const Trailer = (props) => {
 const Result = (props) => {
 		
 		const [serviceData, setFakeData] = useState("")
-    const [showTrailer, setShowTrailer] = useState(false)
+    const [showTrailerBool, setShowTrailer] = useState(false)
     
 		const [fakeWiki, setFakeWiki] = useState({})
 		const [fakeReview, setFakeReview] = useState({})
@@ -21,9 +21,16 @@ const Result = (props) => {
 
 		const response = () => {
 			// setFakeData({result:'future microservice video extractor to return movie trailer'})
-      axios.post('http://flip1.engr.oregonstate.edu:3690/', {'movie': 'free guy'})
+      axios.post('https://movie-service-cs361.herokuapp.com/', 
+      {
+        "yearRange":["2000","2010"],
+        "genres":["comedy"],
+        "rating":"7"
+      })
         .then((res) => {
           setFakeData(res.data.trailer)
+          console.log(res.data.trailer)
+
           setShowTrailer(true)
         })
 		}
@@ -94,7 +101,7 @@ const Result = (props) => {
         </div>
 					<div style={buttonLayoutStyle}>
 						<button style={buttonStyle} onClick={response}>Trailer (will call video extractor microservice provided by teammate)</button>
-            {showTrailer  ? <Trailer trailer={serviceData}/> : null}
+            {showTrailerBool  ? <Trailer trailer={serviceData}/> : null}
 						{/* <button style={buttonStyle} onClick={responseWiki}>Reviews</button>
 						<pre>{JSON.stringify(fakeWiki)}</pre>
 						<button style={buttonStyle} onClick={responseReview}>Wiki (Will call text grabber microservice provided by me)</button>

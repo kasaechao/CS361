@@ -4,6 +4,7 @@ import Result from './components/Result';
 import MySlider from './components/Slider';
 import GenreSelect from './components/GenreSelect';
 import StarRating from './components/StarRating';
+import filmReel from './film-reel.png'
 
 function App() {
 
@@ -22,6 +23,9 @@ function App() {
 
   return (
     <div>
+      <div>
+        <h1><span><img src={filmReel} alt="" /></span>The Movie Recommender</h1>
+      </div>
       <StepBox text={steps.step1} />
       <MySlider results={results}/>
       <StepBox text={steps.step2} />
