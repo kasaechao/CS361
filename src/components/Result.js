@@ -32,7 +32,9 @@ const Result = (props) => {
         .then((res) => {
           setFakeData(res.data.trailer)
           setDescription(res.data.overview)
-          setfilmImage(`https://image.tmdb.org/t/p/w500/${res.data.backdrop_path}`)
+          
+          // setfilmImage(`https://image.tmdb.org/t/p/original/${res.data.backdrop_path}`)
+          setfilmImage(`https://image.tmdb.org/t/p/original/${res.data.poster_path}`)
           console.log(res.data)
 
           setShowTrailer(true)
@@ -64,16 +66,19 @@ const Result = (props) => {
         margin: 'auto',
     }
 
+
 		const buttonLayoutStyle = {
 			paddingLeft: '30%',
 			// margin: 'auto',
 			display: 'flex',
 			flexWrap: 'wrap',
 			gap: '25px',
-			justifyContent: 'center'
+			justifyContent: '50%',
+      marginBottom: '1%'
 		}
 
 		const buttonStyle= {
+
 			backgroundColor: '#4CAF50', /* Green */
 			color: 'white',
 			padding: '15px 32px',
@@ -88,30 +93,36 @@ const Result = (props) => {
     }
 
     const imageStyle = { 
-        width: '200px',
-        height: '300px'
+        width: '225px',
+        height: '400px',
+        margin: '1em'
     }
 
     return (
-        <div style={mainBoxStyle}>
+        <div>
+        <div style={buttonLayoutStyle}>
+          <button style={buttonStyle} onClick={response}>Recommend me a Movie!</button>
+        </div>
+{showTrailerBool ?         <div style={mainBoxStyle}>
 					<div style={stepBoxStyle}>
-            {console.log(props.results)}
 						<div><img style={imageStyle} src={showTrailerBool ? filmImage : null} alt="" /></div>
 						<div style={{padding:'10px'}}>
-								Description
+								<h3>Description</h3>
 								<p>{showTrailerBool ? description : null}</p>
+                <h3>Trailer</h3>
+                {showTrailerBool  ? <Trailer trailer={serviceData}/> : null}
+
 						</div>
 
         </div>
 					<div style={buttonLayoutStyle}>
-						<button style={buttonStyle} onClick={response}>Trailer (will call video extractor microservice provided by teammate)</button>
-            {showTrailerBool  ? <Trailer trailer={serviceData}/> : null}
 						{/* <button style={buttonStyle} onClick={responseWiki}>Reviews</button>
 						<pre>{JSON.stringify(fakeWiki)}</pre>
 						<button style={buttonStyle} onClick={responseReview}>Wiki (Will call text grabber microservice provided by me)</button>
 						<pre>{JSON.stringify(fakeReview)}</pre> */}
 					</div>
         </div>
+: null}        </div>
     )
 }
 
