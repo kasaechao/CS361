@@ -14,6 +14,8 @@ const Result = (props) => {
 		
 		const [serviceData, setFakeData] = useState("")
     const [showTrailerBool, setShowTrailer] = useState(false)
+    const [description, setDescription] = useState("")
+    const [filmImage, setfilmImage] = useState("")
     
 		const [fakeWiki, setFakeWiki] = useState({})
 		const [fakeReview, setFakeReview] = useState({})
@@ -29,7 +31,9 @@ const Result = (props) => {
       })
         .then((res) => {
           setFakeData(res.data.trailer)
-          console.log(res.data.trailer)
+          setDescription(res.data.overview)
+          setfilmImage(`https://image.tmdb.org/t/p/w500/${res.data.backdrop_path}`)
+          console.log(res.data)
 
           setShowTrailer(true)
         })
@@ -92,10 +96,10 @@ const Result = (props) => {
         <div style={mainBoxStyle}>
 					<div style={stepBoxStyle}>
             {console.log(props.results)}
-						<div><img style={imageStyle} src="https://yt3.ggpht.com/ytc/AKedOLSkNBClOIZNjJayMdTxRhUh6LYEXjjjCv0tMJ3-mA=s900-c-k-c0x00ffffff-no-rj" alt="" /></div>
+						<div><img style={imageStyle} src={showTrailerBool ? filmImage : null} alt="" /></div>
 						<div style={{padding:'10px'}}>
 								Description
-								<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab perspiciatis odio, quia asperiores magnam minus mollitia possimus et earum dolorem eius. Nesciunt eligendi eum dolor! Quas non provident excepturi blanditiis.</p>
+								<p>{showTrailerBool ? description : null}</p>
 						</div>
 
         </div>
