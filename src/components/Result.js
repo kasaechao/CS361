@@ -16,6 +16,7 @@ const Result = (props) => {
     const [showTrailerBool, setShowTrailer] = useState(false)
     const [description, setDescription] = useState("")
     const [filmImage, setfilmImage] = useState("")
+    const [buttonText, setButtonText] = useState("Recommend me a Movie!")
     
 		const [fakeWiki, setFakeWiki] = useState({})
 		const [fakeReview, setFakeReview] = useState({})
@@ -35,7 +36,7 @@ const Result = (props) => {
           
           // setfilmImage(`https://image.tmdb.org/t/p/original/${res.data.backdrop_path}`)
           setfilmImage(`https://image.tmdb.org/t/p/original/${res.data.poster_path}`)
-          console.log(res.data)
+          setButtonText('Click here again to recommend another movie!')
 
           setShowTrailer(true)
         })
@@ -101,7 +102,7 @@ const Result = (props) => {
     return (
         <div>
         <div style={buttonLayoutStyle}>
-          <button style={buttonStyle} onClick={response}>Recommend me a Movie!</button>
+          <button style={buttonStyle} onClick={response}>{buttonText}</button>
         </div>
 {showTrailerBool ?         <div style={mainBoxStyle}>
 					<div style={stepBoxStyle}>
