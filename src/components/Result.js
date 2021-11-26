@@ -104,7 +104,7 @@ const Result = (props) => {
         <div style={buttonLayoutStyle}>
           <button style={buttonStyle} onClick={response}>{buttonText}</button>
         </div>
-{showTrailerBool ?         <div style={mainBoxStyle}>
+          {showTrailerBool ?         <div style={mainBoxStyle}>
 					<div style={stepBoxStyle}>
 						<div><img style={imageStyle} src={showTrailerBool ? filmImage : null} alt="" /></div>
 						<div style={{padding:'10px'}}>
@@ -123,7 +123,7 @@ const Result = (props) => {
 						<pre>{JSON.stringify(fakeReview)}</pre> */}
 					</div>
         </div>
-: null}        </div>
+        : null}        </div>
     )
 }
 

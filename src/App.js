@@ -21,10 +21,16 @@ function App() {
     rating: 0,
   }
 
+  let imageStyle = {
+    width: '5%',
+    height: 'auto',
+    marginTop: '.5%'
+  }
+
   return (
     <div>
       <div>
-        <h1><span><img src={filmReel} alt="" /></span>The Movie Recommender</h1>
+        <h1><span><img src={filmReel} style={imageStyle} alt="" /></span>         The Movie Recommender</h1>
       </div>
       <StepBox text={steps.step1} />
       <MySlider results={results}/>
